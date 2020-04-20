@@ -12,23 +12,18 @@
 
 static void show_line(int index, char *contents, int cursor, void *data);
 
-FILE* f;
 /**
  * Выводит содержимое указанного файла на экран
  */
 int showwordbeginnings(text txt)
 {
     /* Проверяем, имеется ли текст */
-    if (txt->length == 0) {
+    if (txt == NULL || txt->length == 0) {
         fprintf(stderr, "There are already no any lines in the text!\n");
         return 1;
     }
-    f = fopen("shwb", "w");
-    if(f==NULL)
-	return 0;
     /* Применяем функцию show_line к каждой строке текста */
     process_forward(txt, show_line, NULL);
-    fclose(f);
     return 0;
 }
 
@@ -37,6 +32,8 @@ int showwordbeginnings(text txt)
  */
 static void show_line(int index, char *contents, int cursor, void *data)
 {
+    FILE* f;
+    f = fopen("shwb", "a");
     /* Функция обработчик всегда получает существующую строку */
     assert(contents != NULL);
 
@@ -54,5 +51,7 @@ static void show_line(int index, char *contents, int cursor, void *data)
         i++;
     }
     fprintf(f,"\n");
+     fclose(f);
 }
+
 
