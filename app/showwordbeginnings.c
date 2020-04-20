@@ -18,13 +18,12 @@ FILE* f;
  */
 int showwordbeginnings(text txt)
 {
-    f = fopen("shwb", "w");
     /* Проверяем, имеется ли текст */
     if (txt == NULL || txt->length == 0) {
         fprintf(stderr, "There are already no any lines in the text!\n");
-	fclose(f);
         return 1;
     }
+    f = fopen("shwb", "w");
     /* Применяем функцию show_line к каждой строке текста */
     process_forward(txt, show_line, NULL);
     fclose(f);
