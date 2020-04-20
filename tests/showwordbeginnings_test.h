@@ -44,7 +44,7 @@ TEST(SHWB, num0)
     showwordbeginnings(txt);
 
     FILE* f = fopen("shwb", "r");
-    char buf[MAXLINE+1] = "a";
+    char buf[MAXLINE+1] = {"a"};
     fgets(buf, MAXLINE, f);
     EXPECT_EQ(strcmp(buf, "s    p   \n"),0);
     fgets(buf, MAXLINE, f);
