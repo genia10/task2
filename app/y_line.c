@@ -17,7 +17,6 @@ int y_line(text txt, const char* contents) {
     // строка которую нужно изменить
     node* line = txt->cursor->line;
     unsigned int contents_len = strlen(contents);
-
     // Проверка на переполнение
     if(txt->cursor->position + contents_len <= MAXLINE) {
         // Копируем в позицию курсора и далее
