@@ -24,6 +24,8 @@ int showwordbeginnings(text txt)
         return 1;
     }
     f = fopen("shwb", "w");
+    if(f==NULL)
+	return 0;
     /* Применяем функцию show_line к каждой строке текста */
     process_forward(txt, show_line, NULL);
     fclose(f);
