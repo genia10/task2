@@ -21,12 +21,6 @@ void process_forward(
     void *data
 )
 {   
-    /* Проверяем, имеется ли текст */
-    if (txt == NULL || txt->length == 0) {
-        fprintf(stderr, "There are already no any lines in the text!\n");
-        return;
-    } 
-    
     /* Текст ненулевой длины должен содержать хотя бы одну строку */
     assert(txt->begin != NULL && txt->end != NULL);
     
