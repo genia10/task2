@@ -19,14 +19,13 @@ static node *create_node(const char *contents);
  */
 void append_line(text txt, const char *contents)
 {
-    
-    /* иначе добавляем элемент в конец списка */
-    } else {
+
+
         txt->end->next = create_node(contents);
         txt->end->next->previous = txt->end;
         txt->end = txt->end->next;        
         txt->length++;         
-    }
+
     
     /* Устанавливаем курсор в конец добавленной строки */
     txt->cursor->line = txt->end;
@@ -41,7 +40,7 @@ static node *create_node(const char *contents)
 {  
     assert(contents != NULL);
     node *nd;
-    nd = (node *) malloc(sizeof(node))
+    nd = (node *) malloc(sizeof(node));
     strncpy(nd->contents, contents, MAXLINE);
     nd->contents[MAXLINE] = '\0';    
     nd->previous = NULL;
@@ -49,3 +48,4 @@ static node *create_node(const char *contents)
     
     return nd;
 }
+
