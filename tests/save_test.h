@@ -55,7 +55,7 @@ TEST(SAVE, num0)
     save(txt, line);
 
     FILE* f=fopen(line, "r");
-    char buf[MAXLINE];
+    char buf[MAXLINE+1] = "a";
     fgets(buf, MAXLINE, f);
     EXPECT_EQ(strcmp(buf, "str1\n"),0);
     fgets(buf, MAXLINE, f);
