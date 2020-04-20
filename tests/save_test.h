@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include <string.h>
+#include <errno.h>
 
 extern "C" {
 #include "_text.h"
@@ -56,11 +57,14 @@ TEST(SAVE, num0)
 
     FILE* f=fopen(line, "r");
     char buf[MAXLINE+1] = {"a"};
-    fgets(buf, MAXLINE, f);
+    if(fgets(buf, MAXLINE, f)==NULL)
+	EXPECT_EQ(1, errno);
     EXPECT_EQ(strcmp(buf, "str1\n"),0);
-    fgets(buf, MAXLINE, f);
+    if(fgets(buf, MAXLINE, f)==NULL)
+	EXPECT_EQ(1, errno);
     EXPECT_EQ(strcmp(buf, "str2\n"),0);
-    fgets(buf, MAXLINE, f);
+    if(fgets(buf, MAXLINE, f)==NULL)
+	EXPECT_EQ(1, errno);
     EXPECT_EQ(strcmp(buf, "str3\n"),0);
 }
 
