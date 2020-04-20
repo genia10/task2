@@ -22,10 +22,7 @@ int save(text txt, char *filename){
         return 1;
     }
     FILE *f;
-    if ((f = fopen(filename, "w")) == NULL) {
-        printf("The file %s cannot be opened\n",filename);
-        return 1;
-    }
+    f = fopen(filename, "w");
     /* Применяем функцию save_line к каждой строке текста */
     process_forward(txt, save_line, (void*)f);
     fclose(f);
