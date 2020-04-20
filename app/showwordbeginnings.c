@@ -19,7 +19,7 @@ FILE* f;
 int showwordbeginnings(text txt)
 {
     /* Проверяем, имеется ли текст */
-    if (txt == NULL || txt->length == 0) {
+    if (txt->length == 0) {
         fprintf(stderr, "There are already no any lines in the text!\n");
         return 1;
     }
